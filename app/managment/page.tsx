@@ -6,7 +6,7 @@ import getOrderings from "../actions/getOrderings";
 
 const OrderingPage = async () => {
   // const verifyPaymentAndAddressModal = useVerifyPaymentAndAddressModal();
-  const ordering = await getOrderings();
+  const ordering = await getOrderings({});
 
   return (
     <ClientOnly>

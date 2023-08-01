@@ -16,7 +16,7 @@ import { Ordering } from "@prisma/client";
 import OrderingCard from "../components/orderings/OrderingCard";
 
 interface ManagmentClientProps {
-  orderings: Ordering;
+  orderings: Ordering[];
 }
 
 const ManagmentClient: React.FC<ManagmentClientProps> = ({
