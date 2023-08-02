@@ -58,6 +58,7 @@ const SearchModal = () => {
         style={{
           height: "calc(2.25rem + 10px)",
           paddingRight: "2px",
+          paddingLeft: "5px",
           textAlign: "left",
         }}
       />
