@@ -17,7 +17,7 @@ interface HomeProps {
 }
 
 const Home = ({ listings, currentUser }: HomeProps) => {
-  if (listings.length === 0) {
+  if (!listings || listings.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
