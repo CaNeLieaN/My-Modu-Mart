@@ -8,14 +8,14 @@ import getListings, {
 } from "./actions/getListings";
 import getCurrentUser from "./actions/getCurrentUser";
 
-import { GetServerSidePropsContext } from "next";
-
 interface HomeProps {
-  listings: any[];
-  currentUser: any;
+  searchParams: IListingsParams;
 }
 
-const Home = ({ listings, currentUser }: HomeProps) => {
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams);
+  const currentUser = await getCurrentUser();
+
   if (!listings || listings.length === 0) {
     return (
       <ClientOnly>
@@ -52,23 +52,5 @@ const Home = ({ listings, currentUser }: HomeProps) => {
     </ClientOnly>
   );
 };
-
-export async function getServerSideProps(
-  context: GetServerSidePropsContext
-) {
-  if (!context.params) {
-    // Return some default props in case params is undefined
-    return { props: {} };
-  }
-
-  const userId = Array.isArray(context.params.userId)
-    ? context.params.userId[0]
-    : context.params.userId; // This gets the userId from the route
-
-  const listings = await getListings({ userId });
-  const currentUser = await getCurrentUser();
-
-  return { props: { listings, currentUser } };
-}
 
 export default Home;
