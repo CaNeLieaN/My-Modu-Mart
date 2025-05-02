@@ -73,7 +73,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
     if (reservation) {
       return reservation.quantity;
     }
-  }, [reservation]);
+    return data.quantity;
+  }, [reservation, data.quantity]);
 
   return (
     <div

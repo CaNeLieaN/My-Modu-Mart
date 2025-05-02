@@ -160,7 +160,7 @@ const AddItemModal = () => {
         />
         <hr />
         <Input
-          id="quatity"
+          id="quantity"
           label="จำนวนสินค้า"
           type="number"
           disabled={isloading}

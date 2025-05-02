@@ -55,7 +55,7 @@ model Listing {
   category    String
   userId      String   @db.ObjectId
   price       Int
-
+  quantity    Int
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
 }
